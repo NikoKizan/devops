@@ -1,0 +1,21 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure(2) do |config|
+  config.vm.box = "centos/7"
+  config.vm.box_check_update = false
+
+  config.vm.provider "virtualbox" do |vb|
+    vb.gui = false
+  end
+
+  config.vm.define "server" do |sr|
+    sr.vm.hostname = "server"
+    sr.vm.network "private_network", ip: "192.168.33.10"
+    sr.vm.network "forwarded_port", guest: 80,  host: 8081
+    sr.vm.synced_folder "/home/niko/vagrant/www/moodle/", "/var/www/html/"
+    sr.vm.synced_folder "/home/niko/data", "/home/data/"
+    sr.vm.provision "shell", path: "/home/niko/data/scenario.sh"
+  end
+end
+
