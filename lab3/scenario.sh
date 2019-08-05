@@ -9,7 +9,6 @@ sudo systemctl enable httpd.service
 echo ------ INSTALL PHP ------
 sudo yum -y install epel-release
 sudo yum -y install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
-sudo yum-config-manager --enable remi-php72
 sudo yum -y update
 sudo yum -y install php php-mysql php-common php-curl php-ldap php-apc php-dom php-xml php-xmlrpc php-gd php-intl php-mbstring php-soap php-zip php-opcache php-cli
 sudo systemctl restart httpd.service
@@ -41,9 +40,9 @@ sudo /usr/bin/php /var/www/html/moodle/admin/cli/install.php
 --dbtype=mariadb 
 --dbname=moodledb 
 --dbuser=Kizan
---dbpass=1234
+--dbpass=Pass1234
 --fullname="Moodle" 
---adminpass=123456
+--adminpass=Pass1234
 --shortname="Moodle" 
 --non-interactive 
 --agree-license
