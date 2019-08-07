@@ -40,7 +40,7 @@ sudo /usr/bin/php /var/www/html/moodle/admin/cli/install.php
 --dbtype=mariadb 
 --dbname=moodledb 
 --dbuser=Kizan
---dbpass=Pass1234
+--dbpass=1234
 --fullname="Moodle" 
 --adminpass=Pass1234
 --shortname="Moodle" 
